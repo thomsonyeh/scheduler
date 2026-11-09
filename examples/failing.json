@@ -1,0 +1,10 @@
+{
+  "name": "flaky-pipeline",
+  "tasks": [
+    {"name": "prepare", "command": "python prepare.py"},
+    {"name": "validate", "command": "python validate.py --fail", "depends_on": ["prepare"]},
+    {"name": "publish", "command": "python publish.py", "depends_on": ["validate"]},
+    {"name": "notify", "command": "python notify.py", "depends_on": ["publish"]},
+    {"name": "archive", "command": "python archive.py", "depends_on": ["prepare"]}
+  ]
+}

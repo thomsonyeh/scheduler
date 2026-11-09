@@ -1,0 +1,8 @@
+{
+  "name": "etl-nightly",
+  "tasks": [
+    {"name": "extract", "command": "python extract.py"},
+    {"name": "transform", "command": "python transform.py", "depends_on": ["extract"]},
+    {"name": "load", "command": "python load.py", "depends_on": ["transform"]}
+  ]
+}

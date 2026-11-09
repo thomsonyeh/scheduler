@@ -1,0 +1,13 @@
+{
+  "name": "regional-reports",
+  "tasks": [
+    {"name": "snapshot", "command": "python snapshot.py"},
+    {"name": "report-us", "command": "python report.py --region us", "depends_on": ["snapshot"]},
+    {"name": "report-eu", "command": "python report.py --region eu", "depends_on": ["snapshot"]},
+    {"name": "report-apac", "command": "python report.py --region apac", "depends_on": ["snapshot"]},
+    {"name": "report-latam", "command": "python report.py --region latam", "depends_on": ["snapshot"]},
+    {"name": "report-mea", "command": "python report.py --region mea", "depends_on": ["snapshot"]},
+    {"name": "report-anz", "command": "python report.py --region anz", "depends_on": ["snapshot"]},
+    {"name": "merge", "command": "python merge.py", "depends_on": ["report-us", "report-eu", "report-apac", "report-latam", "report-mea", "report-anz"]}
+  ]
+}

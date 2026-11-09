@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.db
+*.db-shm
+*.db-wal
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

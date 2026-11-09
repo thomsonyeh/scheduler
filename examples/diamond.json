@@ -1,0 +1,10 @@
+{
+  "name": "model-training",
+  "tasks": [
+    {"name": "fetch-data", "command": "python fetch.py"},
+    {"name": "features", "command": "python features.py", "depends_on": ["fetch-data"]},
+    {"name": "labels", "command": "python labels.py", "depends_on": ["fetch-data"]},
+    {"name": "train", "command": "python train.py", "depends_on": ["features", "labels"]},
+    {"name": "evaluate", "command": "python evaluate.py", "depends_on": ["train"]}
+  ]
+}
